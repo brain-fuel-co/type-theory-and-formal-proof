@@ -1,0 +1,82 @@
+#+title: CS
+
+* Untyped Lambda Calculus
+** What is a function? (Type Theory and Formal Proof, 1.1)
+*** The way I like to think about it
+Imagine a function as a box. You throw inputs into the box, and it spits out your outputs. Each input corresponds with only one output. This means that every single time you throw something into the box, you can expect it to spit out the same thing.
+Here are three examples: [Here we should add pictures of the Identity Function, Doubling, and `Squaring, then adding 1`]
+**** The Identity Function
+We're going to start with the most basic function you can have.
+#+begin_src lambda-calculus
+
+λx.x
+
+(λx.x)(1)
+(λx.x)(2)
+(λx.x)(3)
+
+#+end_src
+
+#+begin_src clojure
+
+        (fn [x] x)
+
+        ((fn [x] x) 1)
+        ((fn [x] x) 2)
+        ((fn [x] x) 3)
+
+#+end_src
+
+#+begin_src javascript
+
+        (x) => x
+
+        ((x) => x)(1)
+        ((x) => x)(2)
+        ((x) => x)(3)
+#+end_src
+
+#+begin_src haskell
+
+                \x -> x
+
+                (\x -> x) 1
+                (\x -> x) 2
+                (\x -> x) 3
+
+#+end_src
+
+#+begin_src elixir
+
+        fn (x) -> x end
+
+        (fn (x) -> x end).(1)
+        (fn (x) -> x end).(2)
+        (fn (x) -> x end).(3)
+
+#+end_src
+
+#+begin_src python
+
+        lambda x : x
+
+        (lambda x : x)(1)
+        (lambda x : x)(2)
+        (lambda x : x)(3)
+
+#+end_src
+
+#+begin_src java
+
+    (x) -> x
+
+    ((x) -> x)(1)
+    ((x) -> x)(2)
+    ((x) -> x)(3)
+
+#+end_src
+
+**** TODO Double
+**** TODO Square and Add 1
+*** TODO The Mathematical Definition
+Here we put the mathematical definition of a function.
