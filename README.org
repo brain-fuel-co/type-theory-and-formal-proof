@@ -7,6 +7,8 @@ Imagine a function as a box. You throw inputs into the box, and it spits out you
 Here are three examples: [Here we should add pictures of the Identity Function, Doubling, and `Squaring, then adding 1`]
 **** The Identity Function
 We're going to start with the most basic function you can have.
+
+***** Lambda Calculus
 #+begin_src lambda-calculus
 
 λx.x
@@ -17,6 +19,7 @@ We're going to start with the most basic function you can have.
 
 #+end_src
 
+***** Clojure
 #+begin_src clojure
 
         (fn [x] x)
@@ -27,6 +30,7 @@ We're going to start with the most basic function you can have.
 
 #+end_src
 
+***** JavaScript
 #+begin_src javascript
 
         (x) => x
@@ -36,6 +40,7 @@ We're going to start with the most basic function you can have.
         ((x) => x)(3)
 #+end_src
 
+***** Haskell
 #+begin_src haskell
 
                 \x -> x
@@ -46,6 +51,7 @@ We're going to start with the most basic function you can have.
 
 #+end_src
 
+***** Elixir
 #+begin_src elixir
 
         fn (x) -> x end
@@ -56,6 +62,7 @@ We're going to start with the most basic function you can have.
 
 #+end_src
 
+***** Python
 #+begin_src python
 
         lambda x : x
@@ -66,6 +73,7 @@ We're going to start with the most basic function you can have.
 
 #+end_src
 
+***** Java
 #+begin_src java
 
     (x) -> x
@@ -76,6 +84,10 @@ We're going to start with the most basic function you can have.
 
 #+end_src
 
+***** C++
+***** C#
+***** Racket
+***** Kotlin
 **** TODO Double
 **** TODO Square and Add 1
 *** TODO The Mathematical Definition
