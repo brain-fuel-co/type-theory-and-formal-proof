@@ -1,6 +1,31 @@
-#+title: CS
+#+title: Type Theory and Formal Proof
 
-* Untyped Lambda Calculus
+This entire project is based upon the book, "Type Theory and Formal Proof: An Introduction", by Nederpelt & Geuvers. I'm not quite sure at the initial writing of this how it'll all work out, but at least one of my goals is to write my own proof assistant in Haskell.
+
+For answers to selected exercises in the book, see [[www.win.tue.nl/~wsinrpn/][Answers]].
+
+[[www.win.tue.nl/~wsinrpn/publications.htm][Rob Nederpelt]]
+[[www.cs.ru.nl/~herman/pubs.html][Herman Geuvers]]
+[[http://corn.cs.ru.nl][CoRN]]
+
+* 0. Computer Setup
+** Install Clojure
+** Install Emacs
+** Install Doom Emacs
+** Setup Doom Emacs for Clojure development
+** Key Commands, Modes, and General Hints
+*** C-x C-f
+This combination helps you navigate to find a file.
+*** C-x C-e
+This combination evaluates the preceding S-Expression.
+*** C-c C-x \
+(org-toggle-pretty-entries)
+This one makes LaTeX symbols show up using the UTF-8 character instead of the symbol alias.
+*** Paredit Mode: M-x paredit-mode
+This one toggles paredit mode, which is a minor mode for Emacs for navigating parenthetical expressions. [[http://danmidwood.com/content/2014/11/21/animated-paredit.html][Paredit Mode]] is a blog article that should help you get started.
+
+
+* 1. Untyped Lambda Calculus
 ** What is a function? (Type Theory and Formal Proof, 1.1)
 *** The way I like to think about it
 Imagine a function as a box. You throw inputs into the box, and it spits out your outputs. Each input corresponds with only one output. This means that every single time you throw something into the box, you can expect it to spit out the same thing.
@@ -75,19 +100,59 @@ We're going to start with the most basic function you can have.
 
 ***** Java
 #+begin_src java
+// This is not untyped, as Java requires a return type for functions
 
-    (x) -> x
+    Function<Integer, Integer> identity = (x) -> x;
 
-    ((x) -> x)(1)
-    ((x) -> x)(2)
-    ((x) -> x)(3)
+    identity.apply(1);
+    identity.apply(2);
+    identity.apply(3);
 
 #+end_src
 
 ***** C++
+#+begin_src C++
+//C++14 and above
+
+    [](auto x) { return x; }
+
+    ([](auto x) { return x; })(1);
+    ([](auto x) { return x; })(2);
+    ([](auto x) { return x; })(3);
+
+#+end_src
 ***** C#
+#+begin_src csharp
+// This is not untyped, as C# requires a return type for functions
+
+    Func<int, int> identity = (x) => x;
+
+    identity(1);
+    identity(2);
+    identity(3);
+
+#+end_src
 ***** Racket
+#+begin_src racket
+
+        (lambda (x) x)
+
+        ((lambda (x) x) 1)
+        ((lambda (x) x) 2)
+        ((lambda (x) x) 3)
+
+#+end_src
 ***** Kotlin
+#+begin_src kotlin
+// Kotlin can't do type inference in this context, so we need to give x a type.
+
+        { x: Int -> x }
+
+        { x: Int -> x }(1)
+        { x: Int -> x }(2)
+        { x: Int -> x }(3)
+
+#+end_src
 **** TODO Double
 **** TODO Square and Add 1
 *** TODO The Mathematical Definition
