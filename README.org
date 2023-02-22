@@ -110,9 +110,8 @@ We're going to start with the most basic function you can have.
 
 #+end_src
 
-***** C++
+***** C++ (Version 14 and above)
 #+begin_src C++
-//C++14 and above
 
     [](auto x) { return x; }
 
