@@ -4,8 +4,8 @@ This entire project is based upon the book, "Type Theory and Formal Proof: An In
 
 For answers to selected exercises in the book, see [[www.win.tue.nl/~wsinrpn/][Answers]].
 
-[[www.win.tue.nl/~wsinrpn/publications.htm][Rob Nederpelt]]
-[[www.cs.ru.nl/~herman/pubs.html][Herman Geuvers]]
+[[https://www.win.tue.nl/~wsinrpn/publications.htm][Rob Nederpelt]]
+[[https://www.cs.ru.nl/~herman/pubs.html][Herman Geuvers]]
 [[http://corn.cs.ru.nl][CoRN]]
 
 * 0. Computer Setup
