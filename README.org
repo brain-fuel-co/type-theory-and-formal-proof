@@ -100,8 +100,8 @@ We're going to start with the most basic function you can have.
 
 ***** Java
 #+begin_src java
-// This is not untyped, as Java requires a return type for functions
 
+    // This is not untyped, as Java requires a return type for functions
     Function<Integer, Integer> identity = (x) -> x;
 
     identity.apply(1);
@@ -122,8 +122,8 @@ We're going to start with the most basic function you can have.
 #+end_src
 ***** C#
 #+begin_src csharp
-// This is not untyped, as C# requires a return type for functions
 
+    // This is not untyped, as C# requires a return type for functions
     Func<int, int> identity = (x) => x;
 
     identity(1);
@@ -143,8 +143,8 @@ We're going to start with the most basic function you can have.
 #+end_src
 ***** Kotlin
 #+begin_src kotlin
-// Kotlin can't do type inference in this context, so we need to give x a type.
 
+        // Kotlin can't do type inference in this context, so we need to give x a type.
         { x: Int -> x }
 
         { x: Int -> x }(1)
