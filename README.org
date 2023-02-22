@@ -154,5 +154,7 @@ We're going to start with the most basic function you can have.
 #+end_src
 **** TODO Double
 **** TODO Square and Add 1
+**** TODO Constant Output
+**** TODO A Function to Make Other Functions
 *** TODO The Mathematical Definition
 Here we put the mathematical definition of a function.
