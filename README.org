@@ -29,7 +29,7 @@ This one toggles paredit mode, which is a minor mode for Emacs for navigating pa
 ** What is a function? (Type Theory and Formal Proof, 1.1)
 *** The way I like to think about it
 Imagine a function as a box. You throw inputs into the box, and it spits out your outputs. Each input corresponds with only one output. This means that every single time you throw something into the box, you can expect it to spit out the same thing.
-Here are three examples: [Here we should add pictures of the Identity Function, Doubling, and `Squaring, then adding 1`]
+Here are five examples: [Here we should add pictures of the functions below]
 **** The Identity Function
 We're going to start with the most basic function you can have.
 
