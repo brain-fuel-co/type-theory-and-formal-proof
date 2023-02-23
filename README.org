@@ -224,8 +224,8 @@ We're going to start with the most basic function you can have.
 
 ***** Java
 #+begin_src java
-// This is not untyped, as Java requires a return type for functions
 
+    // This is not untyped, as Java requires a return type for functions
     Function<Integer, Integer> doubling = (x) -> x + x;
 
     doubling.apply(1);
@@ -234,9 +234,8 @@ We're going to start with the most basic function you can have.
 
 #+end_src
 
-***** C++
+***** C++ (Version 14 and above)
 #+begin_src C++
-//C++14 and above
 
     [](auto x) { return x + x; };
 
@@ -248,8 +247,8 @@ We're going to start with the most basic function you can have.
 
 ***** C#
 #+begin_src csharp
-// This is not untyped, as C# requires a return type for functions
 
+    // This is not untyped, as C# requires a return type for functions
     Func<int, int> doubling = (x) => x + x;
 
     doubling(1);
@@ -271,8 +270,8 @@ We're going to start with the most basic function you can have.
 
 ***** Kotlin
 #+begin_src kotlin
-// Kotlin can't do type inference in this context, so we need to give x a type.
 
+    // Kotlin can't do type inference in this context, so we need to give x a type.
     { x: Int -> x + x}
 
     { x: Int -> x + x } (1)
@@ -352,8 +351,8 @@ We're going to start with the most basic function you can have.
 
 ***** Java
 #+begin_src java
-// This is not untyped, as Java requires a return type for functions
 
+        // This is not untyped, as Java requires a return type for functions
         Function<Integer, Integer> squarePlusOne = (x) -> (x * x) + 1;
 
         squarePlusOne.apply(1);
@@ -362,9 +361,8 @@ We're going to start with the most basic function you can have.
 
 #+end_src
 
-***** C++
+***** C++ (Version 14 and above)
 #+begin_src C++
-//C++14 and above
 
     [](auto x) { return (x * x) + 1; };
 
@@ -375,8 +373,8 @@ We're going to start with the most basic function you can have.
 #+end_src
 ***** C#
 #+begin_src csharp
-// This is not untyped, as C# requires a return type for functions
 
+    // This is not untyped, as C# requires a return type for functions
     Func<int, int> squarePlusOne = (x) => (x * x) + 1;
 
     squarePlusOne(1);
@@ -399,8 +397,8 @@ We're going to start with the most basic function you can have.
 
 ***** Kotlin
 #+begin_src kotlin
-// Kotlin can't do type inference in this context, so we need to give x a type.
 
+    // Kotlin can't do type inference in this context, so we need to give x a type.
     { x: Int -> (x * x) + 1}
 
     { x: Int -> (x * x) + 1}(1)
@@ -458,8 +456,8 @@ We're going to start with the most basic function you can have.
 #+end_src
 
 ***** Elixir
+Standard convention is to prefix the names of arguments which will not be used with '_', in Elixir
 #+begin_src elixir
-// Standard convention is to prefix the names of arguments which will not be used with '_', in Elixir
 
        (fn (_x) -> 5 end)
 
@@ -482,8 +480,8 @@ We're going to start with the most basic function you can have.
 
 ***** Java
 #+begin_src java
-// This is not untyped, as Java requires a return type for functions
 
+        // This is not untyped, as Java requires a return type for functions
         Function<Integer, Integer> returnConstant = (x) -> 5;
 
         returnConstant.apply(1);
@@ -492,9 +490,8 @@ We're going to start with the most basic function you can have.
 
 #+end_src
 
-***** C++
+***** C++ (Version 14 and above)
 #+begin_src C++
-//C++14 and above
 
         [](auto x) { return 5 };
 
@@ -504,10 +501,10 @@ We're going to start with the most basic function you can have.
 
 #+end_src
 
-***** C#
+***** C# (This is not untyped, as C# requires a return type for functions)
 #+begin_src csharp
-// This is not untyped, as C# requires a return type for functions
 
+    // This is not untyped, as C# requires a return type for functions
     Func<int, int> returnConstant = (x) => 5;
 
     returnConstant(1);
@@ -529,8 +526,8 @@ We're going to start with the most basic function you can have.
 
 ***** Kotlin
 #+begin_src kotlin
-// Kotlin can't do type inference in this context, so we need to give x a type.
 
+    // Kotlin can't do type inference in this context, so we need to give x a type.
     { x: Int -> 5}
 
     { x: Int -> 5}(1)
