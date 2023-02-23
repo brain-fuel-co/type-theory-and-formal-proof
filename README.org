@@ -4,8 +4,8 @@ This entire project is based upon the book, "Type Theory and Formal Proof: An In
 
 For answers to selected exercises in the book, see [[www.win.tue.nl/~wsinrpn/][Answers]].
 
-[[www.win.tue.nl/~wsinrpn/publications.htm][Rob Nederpelt]]
-[[www.cs.ru.nl/~herman/pubs.html][Herman Geuvers]]
+[[https://www.win.tue.nl/~wsinrpn/publications.htm][Rob Nederpelt]]
+[[https://www.cs.ru.nl/~herman/pubs.html][Herman Geuvers]]
 [[http://corn.cs.ru.nl][CoRN]]
 
 * 0. Computer Setup
@@ -29,7 +29,7 @@ This one toggles paredit mode, which is a minor mode for Emacs for navigating pa
 ** What is a function? (Type Theory and Formal Proof, 1.1)
 *** The way I like to think about it
 Imagine a function as a box. You throw inputs into the box, and it spits out your outputs. Each input corresponds with only one output. This means that every single time you throw something into the box, you can expect it to spit out the same thing.
-Here are three examples: [Here we should add pictures of the Identity Function, Doubling, and `Squaring, then adding 1`]
+Here are five examples: [Here we should add pictures of the functions below]
 **** The Identity Function
 We're going to start with the most basic function you can have.
 
@@ -100,8 +100,8 @@ We're going to start with the most basic function you can have.
 
 ***** Java
 #+begin_src java
-// This is not untyped, as Java requires a return type for functions
 
+    // This is not untyped, as Java requires a return type for functions
     Function<Integer, Integer> identity = (x) -> x;
 
     identity.apply(1);
@@ -110,9 +110,8 @@ We're going to start with the most basic function you can have.
 
 #+end_src
 
-***** C++
+***** C++ (Version 14 and above)
 #+begin_src C++
-//C++14 and above
 
     [](auto x) { return x; }
 
@@ -124,8 +123,8 @@ We're going to start with the most basic function you can have.
 
 ***** C#
 #+begin_src csharp
-// This is not untyped, as C# requires a return type for functions
 
+    // This is not untyped, as C# requires a return type for functions
     Func<int, int> identity = (x) => x;
 
     identity(1);
@@ -147,8 +146,8 @@ We're going to start with the most basic function you can have.
 
 ***** Kotlin
 #+begin_src kotlin
-// Kotlin can't do type inference in this context, so we need to give x a type.
 
+        // Kotlin can't do type inference in this context, so we need to give x a type.
         { x: Int -> x }
 
         { x: Int -> x }(1)
@@ -156,7 +155,6 @@ We're going to start with the most basic function you can have.
         { x: Int -> x }(3)
 
 #+end_src
-
 
 **** Double
 
@@ -540,6 +538,8 @@ We're going to start with the most basic function you can have.
     { x: Int -> 5}(3)
 
 #+end_src
+
+**** TODO A Function to Make Other Functions
 
 *** TODO The Mathematical Definition
 Here we put the mathematical definition of a function.
