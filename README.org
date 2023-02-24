@@ -352,12 +352,12 @@ We're going to start with the most basic function you can have.
 ***** Java
 #+begin_src java
 
-        // This is not untyped, as Java requires a return type for functions
-        Function<Integer, Integer> squarePlusOne = (x) -> (x * x) + 1;
+    // This is not untyped, as Java requires a return type for functions
+    Function<Integer, Integer> squarePlusOne = (x) -> (x * x) + 1;
 
-        squarePlusOne.apply(1);
-        squarePlusOne.apply(2);
-        squarePlusOne.apply(3);
+    squarePlusOne.apply(1);
+    squarePlusOne.apply(2);
+    squarePlusOne.apply(3);
 
 #+end_src
 
@@ -481,23 +481,23 @@ Standard convention is to prefix the names of arguments which will not be used w
 ***** Java
 #+begin_src java
 
-        // This is not untyped, as Java requires a return type for functions
-        Function<Integer, Integer> returnConstant = (x) -> 5;
+    // This is not untyped, as Java requires a return type for functions
+    Function<Integer, Integer> returnConstant = (x) -> 5;
 
-        returnConstant.apply(1);
-        returnConstant.apply(2);
-        returnConstant.apply(3);
+    returnConstant.apply(1);
+    returnConstant.apply(2);
+    returnConstant.apply(3);
 
 #+end_src
 
 ***** C++ (Version 14 and above)
-#+begin_src C++
+#+begin_src C
 
-        [](auto x) { return 5 };
+    [](auto x) { return 5 };
 
-        ([](auto x) { return 5; }(1));
-        ([](auto x) { return 5; }(2));
-        ([](auto x) { return 5; }(3));
+    ([](auto x) { return 5; }(1));
+    ([](auto x) { return 5; }(2));
+    ([](auto x) { return 5; }(3));
 
 #+end_src
 
@@ -527,16 +527,140 @@ Standard convention is to prefix the names of arguments which will not be used w
 ***** Kotlin
 #+begin_src kotlin
 
-    // Kotlin can't do type inference in this context, so we need to give x a type.
-    { x: Int -> 5}
+        // Kotlin can't do type inference in this context, so we need to give x a type.
 
-    { x: Int -> 5}(1)
-    { x: Int -> 5}(2)
-    { x: Int -> 5}(3)
+        { x: Int -> 5}
+        { x: Int -> 5}(1)
+        { x: Int -> 5}(2)
+        { x: Int -> 5}(3)
 
 #+end_src
 
-**** TODO A Function to Make Other Functions
+**** A Function to Make Other Functions
+
+***** Lambda Calculus
+#+begin_src lambda-calculus
+
+λx.(λy.x + y)
+
+(λx.(λy.x + y))(1)
+(λx.(λy.x + y))(2)
+(λx.(λy.x + y))(3)
+
+#+end_src
+
+***** Clojure
+#+begin_src clojure
+
+        (fn [x] (fn [y] (+ x y)))
+
+        ((fn [x] (fn [y] (+ x y))) 1)
+        ((fn [x] (fn [y] (+ x y))) 2)
+        ((fn [x] (fn [y] (+ x y))) 3)
+
+#+end_src
+
+***** JavaScript
+#+begin_src javascript
+
+        (x) => ((y) => x + y)
+
+        ((x) => ((y) => x + y))(1)
+        ((x) => ((y) => x + y))(2)
+        ((x) => ((y) => x + y))(3)
+
+#+end_src
+
+***** Haskell
+#+begin_src haskell
+
+                \x -> (\y -> x + y)
+
+                (\x -> (\y -> x + y)) 1
+                (\x -> (\y -> x + y)) 2
+                (\x -> (\y -> x + y)) 3
+
+#+end_src
+
+***** Elixir
+#+begin_src elixir
+
+        (fn (x) -> (fn (y) -> x + y end) end)
+
+        (fn (x) -> (fn (y) -> x + y end) end).(1)
+        (fn (x) -> (fn (y) -> x + y end) end).(2)
+        (fn (x) -> (fn (y) -> x + y end) end).(3)
+
+#+end_src
+
+***** Python
+#+begin_src python
+
+        lambda x : (lambda y : x + y)
+
+        (lambda x : (lambda y : x + y))(1)
+        (lambda x : (lambda y : x + y))(2)
+        (lambda x : (lambda y : x + y))(3)
+
+#+end_src
+
+***** Java
+#+begin_src java
+
+    // This is not untyped, as Java requires a return type for functions
+    Function<Integer, Function<Integer, Integer>> functionToFunction = (x) -> ((y) -> (x + y));
+
+    functionToFunction.apply(1);
+    functionToFunction.apply(2);
+    functionToFunction.apply(3);
+
+#+end_src
+
+***** C++ (Version 14 and above)
+#+begin_src C++
+
+    [](auto x) { return [x](auto y) { return x + y; }; };
+
+    ([](auto x) { return [x](auto y) { return x + y; }; }(1));
+    ([](auto x) { return [x](auto y) { return x + y; }; }(2));
+    ([](auto x) { return [x](auto y) { return x + y; }; }(3));
+
+#+end_src
+
+***** C# (This is not untyped, as C# requires a return type for functions)
+#+begin_src csharp
+
+    // This is not untyped, as C# requires a return type for functions
+    Func<int, Func<int, int>> functionToFunction = (x) => ((y) => x + y);
+
+    functionToFunction(1);
+    functionToFunction(2);
+    functionToFunction(3);
+
+#+end_src
+
+***** Racket
+#+begin_src racket
+
+        (lambda (x) (lambda (y) (+ x y)))
+
+        ((lambda (x) (lambda (y) (+ x y))) 1)
+        ((lambda (x) (lambda (y) (+ x y))) 2)
+        ((lambda (x) (lambda (y) (+ x y))) 3)
+
+#+end_src
+
+***** Kotlin
+#+begin_src kotlin
+
+        // Kotlin can't do type inference in this context, so we need to give x a type.
+        { x: Int -> { y: Int -> x + y}}
+
+        { x: Int -> { y: Int -> x + y}} (1)
+        { x: Int -> { y: Int -> x + y}} (2)
+        { x: Int -> { y: Int -> x + y}} (3)
+
+#+end_src
 
 *** TODO The Mathematical Definition
 Here we put the mathematical definition of a function.
