@@ -530,6 +530,7 @@ Standard convention is to prefix the names of arguments which will not be used w
         // Kotlin can't do type inference in this context, so we need to give x a type.
 
         { x: Int -> 5}
+
         { x: Int -> 5}(1)
         { x: Int -> 5}(2)
         { x: Int -> 5}(3)
@@ -662,5 +663,5 @@ Standard convention is to prefix the names of arguments which will not be used w
 
 #+end_src
 
-*** TODO The Mathematical Definition
+*** TODO533G The Mathematical Definition
 Here we put the mathematical definition of a function.
