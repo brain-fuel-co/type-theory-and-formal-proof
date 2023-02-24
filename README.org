@@ -528,7 +528,6 @@ Standard convention is to prefix the names of arguments which will not be used w
 #+begin_src kotlin
 
         // Kotlin can't do type inference in this context, so we need to give x a type.
-
         { x: Int -> 5}
 
         { x: Int -> 5}(1)
