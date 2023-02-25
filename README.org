@@ -28,8 +28,10 @@ This one toggles paredit mode, which is a minor mode for Emacs for navigating pa
 * 1. Untyped Lambda Calculus
 ** What is a function? (Type Theory and Formal Proof, 1.1)
 *** The way I like to think about it
+
 Imagine a function as a box. You throw inputs into the box, and it spits out your outputs. Each input corresponds with only one output. This means that every single time you throw something into the box, you can expect it to spit out the same thing.
 Here are five examples: [Here we should add pictures of the functions below]
+
 **** The Identity Function
 We're going to start with the most basic function you can have.
 
@@ -63,6 +65,7 @@ We're going to start with the most basic function you can have.
         ((x) => x)(1)
         ((x) => x)(2)
         ((x) => x)(3)
+
 #+end_src
 
 ***** Haskell
@@ -182,11 +185,13 @@ We're going to start with the most basic function you can have.
 
 ***** JavaScript
 #+begin_src javascript
-       (x) => (x + x)
 
-       ((x) => (x + x))(1)
-       ((x) => (x + x))(2)
-       ((x) => (x + x))(3)
+        (x) => (x + x)
+
+        ((x) => (x + x))(1)
+        ((x) => (x + x))(2)
+        ((x) => (x + x))(3)
+
 #+end_src
 
 ***** Haskell
@@ -608,11 +613,12 @@ Standard convention is to prefix the names of arguments which will not be used w
 #+begin_src java
 
     // This is not untyped, as Java requires a return type for functions
-    Function<Integer, Function<Integer, Integer>> functionToFunction = (x) -> ((y) -> (x + y));
 
-    functionToFunction.apply(1);
-    functionToFunction.apply(2);
-    functionToFunction.apply(3);
+    Function<Integer, Function<Integer, Integer>> makeAdder = (x) -> ((y) -> (x + y));
+
+    var add1 = makeAdder.apply(1);
+    var add2 = makeAdder.apply(2);
+    var add3 = makeAdder.apply(3);
 
 #+end_src
 
@@ -621,9 +627,9 @@ Standard convention is to prefix the names of arguments which will not be used w
 
     [](auto x) { return [x](auto y) { return x + y; }; };
 
-    ([](auto x) { return [x](auto y) { return x + y; }; }(1));
-    ([](auto x) { return [x](auto y) { return x + y; }; }(2));
-    ([](auto x) { return [x](auto y) { return x + y; }; }(3));
+    auto add1 = ([](auto x) { return [x](auto y) { return x + y; }; }(1));
+    auto add2 = ([](auto x) { return [x](auto y) { return x + y; }; }(2));
+    auto add3 = ([](auto x) { return [x](auto y) { return x + y; }; }(3));
 
 #+end_src
 
@@ -631,11 +637,11 @@ Standard convention is to prefix the names of arguments which will not be used w
 #+begin_src csharp
 
     // This is not untyped, as C# requires a return type for functions
-    Func<int, Func<int, int>> functionToFunction = (x) => ((y) => x + y);
+    Func<int, Func<int, int>> makeAdder = (x) => ((y) => x + y);
 
-    functionToFunction(1);
-    functionToFunction(2);
-    functionToFunction(3);
+    var add1 = makeAdder(1);
+    var add2 = makeAdder(2);
+    var add3 = makeAdder(3);
 
 #+end_src
 
@@ -662,5 +668,5 @@ Standard convention is to prefix the names of arguments which will not be used w
 
 #+end_src
 
-*** TODO533G The Mathematical Definition
+*** TODO The Mathematical Definition
 Here we put the mathematical definition of a function.
