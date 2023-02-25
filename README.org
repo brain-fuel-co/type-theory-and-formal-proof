@@ -28,8 +28,10 @@ This one toggles paredit mode, which is a minor mode for Emacs for navigating pa
 * 1. Untyped Lambda Calculus
 ** What is a function? (Type Theory and Formal Proof, 1.1)
 *** The way I like to think about it
+
 Imagine a function as a box. You throw inputs into the box, and it spits out your outputs. Each input corresponds with only one output. This means that every single time you throw something into the box, you can expect it to spit out the same thing.
 Here are five examples: [Here we should add pictures of the functions below]
+
 **** The Identity Function
 We're going to start with the most basic function you can have.
 
@@ -63,6 +65,7 @@ We're going to start with the most basic function you can have.
         ((x) => x)(1)
         ((x) => x)(2)
         ((x) => x)(3)
+
 #+end_src
 
 ***** Haskell
@@ -182,11 +185,13 @@ We're going to start with the most basic function you can have.
 
 ***** JavaScript
 #+begin_src javascript
-       (x) => (x + x)
 
-       ((x) => (x + x))(1)
-       ((x) => (x + x))(2)
-       ((x) => (x + x))(3)
+        (x) => (x + x)
+
+        ((x) => (x + x))(1)
+        ((x) => (x + x))(2)
+        ((x) => (x + x))(3)
+
 #+end_src
 
 ***** Haskell
@@ -352,12 +357,12 @@ We're going to start with the most basic function you can have.
 ***** Java
 #+begin_src java
 
-        // This is not untyped, as Java requires a return type for functions
-        Function<Integer, Integer> squarePlusOne = (x) -> (x * x) + 1;
+    // This is not untyped, as Java requires a return type for functions
+    Function<Integer, Integer> squarePlusOne = (x) -> (x * x) + 1;
 
-        squarePlusOne.apply(1);
-        squarePlusOne.apply(2);
-        squarePlusOne.apply(3);
+    squarePlusOne.apply(1);
+    squarePlusOne.apply(2);
+    squarePlusOne.apply(3);
 
 #+end_src
 
@@ -481,23 +486,23 @@ Standard convention is to prefix the names of arguments which will not be used w
 ***** Java
 #+begin_src java
 
-        // This is not untyped, as Java requires a return type for functions
-        Function<Integer, Integer> returnConstant = (x) -> 5;
+    // This is not untyped, as Java requires a return type for functions
+    Function<Integer, Integer> returnConstant = (x) -> 5;
 
-        returnConstant.apply(1);
-        returnConstant.apply(2);
-        returnConstant.apply(3);
+    returnConstant.apply(1);
+    returnConstant.apply(2);
+    returnConstant.apply(3);
 
 #+end_src
 
 ***** C++ (Version 14 and above)
-#+begin_src C++
+#+begin_src C
 
-        [](auto x) { return 5 };
+    [](auto x) { return 5 };
 
-        ([](auto x) { return 5; }(1));
-        ([](auto x) { return 5; }(2));
-        ([](auto x) { return 5; }(3));
+    ([](auto x) { return 5; }(1));
+    ([](auto x) { return 5; }(2));
+    ([](auto x) { return 5; }(3));
 
 #+end_src
 
@@ -527,16 +532,141 @@ Standard convention is to prefix the names of arguments which will not be used w
 ***** Kotlin
 #+begin_src kotlin
 
-    // Kotlin can't do type inference in this context, so we need to give x a type.
-    { x: Int -> 5}
+        // Kotlin can't do type inference in this context, so we need to give x a type.
+        { x: Int -> 5}
 
-    { x: Int -> 5}(1)
-    { x: Int -> 5}(2)
-    { x: Int -> 5}(3)
+        { x: Int -> 5}(1)
+        { x: Int -> 5}(2)
+        { x: Int -> 5}(3)
 
 #+end_src
 
-**** TODO A Function to Make Other Functions
+**** A Function to Make Other Functions
+
+***** Lambda Calculus
+#+begin_src lambda-calculus
+
+λx.(λy.x + y)
+
+(λx.(λy.x + y))(1)
+(λx.(λy.x + y))(2)
+(λx.(λy.x + y))(3)
+
+#+end_src
+
+***** Clojure
+#+begin_src clojure
+
+        (fn [x] (fn [y] (+ x y)))
+
+        ((fn [x] (fn [y] (+ x y))) 1)
+        ((fn [x] (fn [y] (+ x y))) 2)
+        ((fn [x] (fn [y] (+ x y))) 3)
+
+#+end_src
+
+***** JavaScript
+#+begin_src javascript
+
+        (x) => ((y) => x + y)
+
+        ((x) => ((y) => x + y))(1)
+        ((x) => ((y) => x + y))(2)
+        ((x) => ((y) => x + y))(3)
+
+#+end_src
+
+***** Haskell
+#+begin_src haskell
+
+                \x -> (\y -> x + y)
+
+                (\x -> (\y -> x + y)) 1
+                (\x -> (\y -> x + y)) 2
+                (\x -> (\y -> x + y)) 3
+
+#+end_src
+
+***** Elixir
+#+begin_src elixir
+
+        (fn (x) -> (fn (y) -> x + y end) end)
+
+        (fn (x) -> (fn (y) -> x + y end) end).(1)
+        (fn (x) -> (fn (y) -> x + y end) end).(2)
+        (fn (x) -> (fn (y) -> x + y end) end).(3)
+
+#+end_src
+
+***** Python
+#+begin_src python
+
+        lambda x : (lambda y : x + y)
+
+        (lambda x : (lambda y : x + y))(1)
+        (lambda x : (lambda y : x + y))(2)
+        (lambda x : (lambda y : x + y))(3)
+
+#+end_src
+
+***** Java
+#+begin_src java
+
+    // This is not untyped, as Java requires a return type for functions
+
+    Function<Integer, Function<Integer, Integer>> makeAdder = (x) -> ((y) -> (x + y));
+
+    var add1 = makeAdder.apply(1);
+    var add2 = makeAdder.apply(2);
+    var add3 = makeAdder.apply(3);
+
+#+end_src
+
+***** C++ (Version 14 and above)
+#+begin_src C++
+
+    [](auto x) { return [x](auto y) { return x + y; }; };
+
+    auto add1 = ([](auto x) { return [x](auto y) { return x + y; }; }(1));
+    auto add2 = ([](auto x) { return [x](auto y) { return x + y; }; }(2));
+    auto add3 = ([](auto x) { return [x](auto y) { return x + y; }; }(3));
+
+#+end_src
+
+***** C# (This is not untyped, as C# requires a return type for functions)
+#+begin_src csharp
+
+    // This is not untyped, as C# requires a return type for functions
+    Func<int, Func<int, int>> makeAdder = (x) => ((y) => x + y);
+
+    var add1 = makeAdder(1);
+    var add2 = makeAdder(2);
+    var add3 = makeAdder(3);
+
+#+end_src
+
+***** Racket
+#+begin_src racket
+
+        (lambda (x) (lambda (y) (+ x y)))
+
+        ((lambda (x) (lambda (y) (+ x y))) 1)
+        ((lambda (x) (lambda (y) (+ x y))) 2)
+        ((lambda (x) (lambda (y) (+ x y))) 3)
+
+#+end_src
+
+***** Kotlin
+#+begin_src kotlin
+
+        // Kotlin can't do type inference in this context, so we need to give x a type.
+        { x: Int -> { y: Int -> x + y}}
+
+        { x: Int -> { y: Int -> x + y}} (1)
+        { x: Int -> { y: Int -> x + y}} (2)
+        { x: Int -> { y: Int -> x + y}} (3)
+
+#+end_src
 
 *** The Mathematical Definition
 A function from a set X to a set Y is an assignment of an element of Y to each element of X. The set X is called the domain of the function and the set Y is called the codomain of the function.
