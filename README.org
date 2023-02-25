@@ -1,8 +1,8 @@
 #+title: Type Theory and Formal Proof
 
-This entire project is based upon the book, "Type Theory and Formal Proof: An Introduction", by Nederpelt & Geuvers. I'm not quite sure at the initial writing of this how it'll all work out, but at least one of my goals is to write my own proof assistant in Haskell.
+This entire project is based upon the book, "Type Theory and Formal Proof: An Introduction", by Nederpelt & Geuvers. I'm not quite sure at the initial writing of this how it'll all work out, but at least one goal is to turn this into an introduction to Computer Science, and another is to write a proof assistant.
 
-For answers to selected exercises in the book, see [[www.win.tue.nl/~wsinrpn/][Answers]].
+For answers to selected exercises in the book, see [[https://www.win.tue.nl/~wsinrpn/][Answers]].
 
 [[https://www.win.tue.nl/~wsinrpn/publications.htm][Rob Nederpelt]]
 [[https://www.cs.ru.nl/~herman/pubs.html][Herman Geuvers]]
