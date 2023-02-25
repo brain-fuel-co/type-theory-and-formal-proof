@@ -538,5 +538,7 @@ Standard convention is to prefix the names of arguments which will not be used w
 
 **** TODO A Function to Make Other Functions
 
-*** TODO The Mathematical Definition
-Here we put the mathematical definition of a function.
+*** The Mathematical Definition
+A function from a set X to a set Y is an assignment of an element of Y to each element of X. The set X is called the domain of the function and the set Y is called the codomain of the function.
+
+A function, its domain, and its codomain, are declared by the notation f: X->Y, and the value of a function f at an element x of X, denoted by f(x), is called the image of x under f, or the value of f applied to the argument x.
