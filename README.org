@@ -173,6 +173,7 @@ We're going to start with the most basic function you can have.
 ***** Rust
 #+begin_src rust
 
+        // This is not untyped, as Rust requires a return type for a function
         |x: u64| -> u64 { x };
 
         (|x: u64| -> u64 { x })(1);
