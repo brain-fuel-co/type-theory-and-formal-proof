@@ -136,6 +136,17 @@ We're going to start with the most basic function you can have.
 
 #+end_src
 
+***** F#
+#+begin_src fsharp
+
+        fun x -> x
+
+        (fun x -> x) 1
+        (fun x -> x) 2
+        (fun x -> x) 3
+
+#+end_src
+
 ***** Racket
 #+begin_src racket
 
@@ -156,6 +167,17 @@ We're going to start with the most basic function you can have.
         { x: Int -> x }(1)
         { x: Int -> x }(2)
         { x: Int -> x }(3)
+
+#+end_src
+
+***** Rust
+#+begin_src rust
+
+        |x: u64| -> u64 { x };
+
+        (|x: u64| -> u64 { x })(1);
+        (|x: u64| -> u64 { x })(2);
+        (|x: u64| -> u64 { x })(3);
 
 #+end_src
 
@@ -399,6 +421,8 @@ We're going to start with the most basic function you can have.
         ((lambda (x) (+ (* x x) 1)) 3)
 
 #+end_src
+
+#+RESULTS:
 
 ***** Kotlin
 #+begin_src kotlin
