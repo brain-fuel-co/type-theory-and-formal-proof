@@ -1,8 +1,8 @@
 #+title: Type Theory and Formal Proof
 
-This entire project is based upon the book, "Type Theory and Formal Proof: An Introduction", by Nederpelt & Geuvers. I'm not quite sure at the initial writing of this how it'll all work out, but at least one of my goals is to write my own proof assistant in Haskell.
+This entire project is based upon the book, "Type Theory and Formal Proof: An Introduction", by Nederpelt & Geuvers. I'm not quite sure at the initial writing of this how it'll all work out, but at least one goal is to turn this into an introduction to Computer Science, and another is to write a proof assistant.
 
-For answers to selected exercises in the book, see [[www.win.tue.nl/~wsinrpn/][Answers]].
+For answers to selected exercises in the book, see [[https://www.win.tue.nl/~wsinrpn/][Answers]].
 
 [[https://www.win.tue.nl/~wsinrpn/publications.htm][Rob Nederpelt]]
 [[https://www.cs.ru.nl/~herman/pubs.html][Herman Geuvers]]
@@ -454,6 +454,8 @@ We're going to start with the most basic function you can have.
 
 #+end_src
 
+#+RESULTS:
+
 ***** Kotlin
 #+begin_src kotlin
 
@@ -559,7 +561,7 @@ Standard convention is to prefix the names of arguments which will not be used w
 #+end_src
 
 ***** C++ (Version 14 and above)
-#+begin_src C++
+#+begin_src C
 
     [](auto x) { return 5 };
 
@@ -569,7 +571,7 @@ Standard convention is to prefix the names of arguments which will not be used w
 
 #+end_src
 
-***** C# (This is not untyped, as C# requires a return type for functions)
+***** C#
 #+begin_src csharp
 
     // This is not untyped, as C# requires a return type for functions
@@ -614,6 +616,7 @@ Standard convention is to prefix the names of arguments which will not be used w
         { x: Int -> 5}(3)
 
 #+end_src
+
 
 ***** Rust
 #+begin_src rust
@@ -775,5 +778,7 @@ Standard convention is to prefix the names of arguments which will not be used w
 
 #+end_src
 
-*** TODO The Mathematical Definition
-Here we put the mathematical definition of a function.
+*** The Mathematical Definition of a Function
+A function from a set X to a set Y is an assignment of an element of Y to each element of X. The set X is called the domain of the function and the set Y is called the codomain of the function.
+
+A function, its domain, and its codomain, are declared by the notation f: X->Y, and the value of a function f at an element x of X, denoted by f(x), is called the image of x under f, or the value of f applied to the argument x.
