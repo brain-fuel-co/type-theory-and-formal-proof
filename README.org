@@ -720,7 +720,7 @@ Standard convention is to prefix the names of arguments which will not be used w
 
 #+end_src
 
-***** C# (This is not untyped, as C# requires a return type for functions)
+***** C#
 #+begin_src csharp
 
     // This is not untyped, as C# requires a return type for functions
