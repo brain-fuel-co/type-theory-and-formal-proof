@@ -559,7 +559,7 @@ Standard convention is to prefix the names of arguments which will not be used w
 #+end_src
 
 ***** C++ (Version 14 and above)
-#+begin_src C
+#+begin_src C++
 
     [](auto x) { return 5 };
 
@@ -698,7 +698,6 @@ Standard convention is to prefix the names of arguments which will not be used w
 #+begin_src java
 
     // This is not untyped, as Java requires a return type for functions
-
     Function<Integer, Function<Integer, Integer>> makeAdder = (x) -> ((y) -> (x + y));
 
     var add1 = makeAdder.apply(1);
