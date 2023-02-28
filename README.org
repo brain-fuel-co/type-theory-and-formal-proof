@@ -1,8 +1,8 @@
 #+title: Type Theory and Formal Proof
 
-This entire project is based upon the book, "Type Theory and Formal Proof: An Introduction", by Nederpelt & Geuvers. I'm not quite sure at the initial writing of this how it'll all work out, but at least one of my goals is to write my own proof assistant in Haskell.
+This entire project is based upon the book, "Type Theory and Formal Proof: An Introduction", by Nederpelt & Geuvers. I'm not quite sure at the initial writing of this how it'll all work out, but at least one goal is to turn this into an introduction to Computer Science, and another is to write a proof assistant.
 
-For answers to selected exercises in the book, see [[www.win.tue.nl/~wsinrpn/][Answers]].
+For answers to selected exercises in the book, see [[https://www.win.tue.nl/~wsinrpn/][Answers]].
 
 [[https://www.win.tue.nl/~wsinrpn/publications.htm][Rob Nederpelt]]
 [[https://www.cs.ru.nl/~herman/pubs.html][Herman Geuvers]]
@@ -24,13 +24,12 @@ This one makes LaTeX symbols show up using the UTF-8 character instead of the sy
 *** Paredit Mode: M-x paredit-mode
 This one toggles paredit mode, which is a minor mode for Emacs for navigating parenthetical expressions. [[http://danmidwood.com/content/2014/11/21/animated-paredit.html][Paredit Mode]] is a blog article that should help you get started.
 
-
 * 1. Untyped Lambda Calculus
 ** What is a function? (Type Theory and Formal Proof, 1.1)
 *** The way I like to think about it
 
-Imagine a function as a box. You throw inputs into the box, and it spits out your outputs. Each input corresponds with only one output. This means that every single time you throw something into the box, you can expect it to spit out the same thing.
-Here are five examples: [Here we should add pictures of the functions below]
+Imagine a function as a box. You give the box your input(s), and it spits out your output(s). Each set of inputs corresponds with only one output. This means that every time you throw identical inputs into the box, you can expect it to spit out the same output.
+You can choose to think about it in some other way if it suits you better. That being said, here are five examples of the function-box:
 
 **** The Identity Function
 We're going to start with the most basic function you can have.
@@ -136,6 +135,17 @@ We're going to start with the most basic function you can have.
 
 #+end_src
 
+***** F#
+#+begin_src fsharp
+
+        fun x -> x
+
+        (fun x -> x) 1
+        (fun x -> x) 2
+        (fun x -> x) 3
+
+#+end_src
+
 ***** Racket
 #+begin_src racket
 
@@ -156,6 +166,17 @@ We're going to start with the most basic function you can have.
         { x: Int -> x }(1)
         { x: Int -> x }(2)
         { x: Int -> x }(3)
+
+#+end_src
+
+***** Rust
+#+begin_src rust
+
+        let identity = |x| { x };
+
+        identity(1);
+        identity(2);
+        identity(3);
 
 #+end_src
 
@@ -262,6 +283,17 @@ We're going to start with the most basic function you can have.
 
 #+end_src
 
+***** F#
+#+begin_src fsharp
+
+        fun x -> x + x
+
+        (fun x -> x + x) 1
+        (fun x -> x + x) 2
+        (fun x -> x + x) 3
+
+#+end_src
+
 ***** Racket
 #+begin_src racket
 
@@ -285,6 +317,16 @@ We're going to start with the most basic function you can have.
 
 #+end_src
 
+***** Rust
+#+begin_src rust
+
+        let doubling = |x| { x + x };
+
+        doubling(1);
+        doubling(2);
+        doubling(3);
+
+#+end_src
 
 **** Square and Add 1
 
@@ -388,6 +430,17 @@ We're going to start with the most basic function you can have.
 
 #+end_src
 
+***** F#
+#+begin_src fsharp
+
+        fun x -> x * x + 1
+
+        (fun x -> x * x + 1) 1
+        (fun x -> x * x + 1) 2
+        (fun x -> x * x + 1) 3
+
+#+end_src
+
 ***** Racket
 #+begin_src racket
 
@@ -399,6 +452,8 @@ We're going to start with the most basic function you can have.
         ((lambda (x) (+ (* x x) 1)) 3)
 
 #+end_src
+
+#+RESULTS:
 
 ***** Kotlin
 #+begin_src kotlin
@@ -412,7 +467,16 @@ We're going to start with the most basic function you can have.
 
 #+end_src
 
+***** Rust
+#+begin_src rust
 
+        let square_plus_one = |x| { x * x + 1 };
+
+        square_plus_one(1);
+        square_plus_one(2);
+        square_plus_one(3);
+
+#+end_src
 
 **** Constant Function Output
 
@@ -506,7 +570,7 @@ Standard convention is to prefix the names of arguments which will not be used w
 
 #+end_src
 
-***** C# (This is not untyped, as C# requires a return type for functions)
+***** C#
 #+begin_src csharp
 
     // This is not untyped, as C# requires a return type for functions
@@ -515,6 +579,17 @@ Standard convention is to prefix the names of arguments which will not be used w
     returnConstant(1);
     returnConstant(2);
     returnConstant(3);
+
+#+end_src
+
+***** F#
+#+begin_src fsharp
+
+        fun x -> 5
+
+        (fun x -> 5) 1
+        (fun x -> 5) 2
+        (fun x -> 5) 3
 
 #+end_src
 
@@ -538,6 +613,17 @@ Standard convention is to prefix the names of arguments which will not be used w
         { x: Int -> 5}(1)
         { x: Int -> 5}(2)
         { x: Int -> 5}(3)
+
+#+end_src
+
+***** Rust
+#+begin_src rust
+
+        let return_constant = |x| { 5 };
+
+        return_constant(1);
+        return_constant(2);
+        return_constant(3);
 
 #+end_src
 
@@ -667,6 +753,107 @@ Standard convention is to prefix the names of arguments which will not be used w
         { x: Int -> { y: Int -> x + y}} (3)
 
 #+end_src
+=======
 
-*** TODO The Mathematical Definition
-Here we put the mathematical definition of a function.
+        (fn (x) -> (fn (y) -> x + y end) end).(1)
+        (fn (x) -> (fn (y) -> x + y end) end).(2)
+        (fn (x) -> (fn (y) -> x + y end) end).(3)
+
+#+end_src
+
+***** Python
+#+begin_src python
+
+        lambda x : (lambda y : x + y)
+
+        (lambda x : (lambda y : x + y))(1)
+        (lambda x : (lambda y : x + y))(2)
+        (lambda x : (lambda y : x + y))(3)
+
+#+end_src
+
+***** Java
+#+begin_src java
+
+    // This is not untyped, as Java requires a return type for functions
+    Function<Integer, Function<Integer, Integer>> makeAdder = (x) -> ((y) -> (x + y));
+
+    var add1 = makeAdder.apply(1);
+    var add2 = makeAdder.apply(2);
+    var add3 = makeAdder.apply(3);
+
+#+end_src
+
+***** C++ (Version 14 and above)
+#+begin_src C++
+
+    [](auto x) { return [x](auto y) { return x + y; }; };
+
+    auto add1 = ([](auto x) { return [x](auto y) { return x + y; }; }(1));
+    auto add2 = ([](auto x) { return [x](auto y) { return x + y; }; }(2));
+    auto add3 = ([](auto x) { return [x](auto y) { return x + y; }; }(3));
+
+#+end_src
+
+***** C#
+#+begin_src csharp
+
+    // This is not untyped, as C# requires a return type for functions
+    Func<int, Func<int, int>> makeAdder = (x) => ((y) => x + y);
+
+    var add1 = makeAdder(1);
+    var add2 = makeAdder(2);
+    var add3 = makeAdder(3);
+
+#+end_src
+
+***** F#
+#+begin_src fsharp
+
+        fun x -> (fun y -> x + y)
+
+        (fun x -> (fun y -> x + y)) 1
+        (fun x -> (fun y -> x + y)) 2
+        (fun x -> (fun y -> x + y)) 3
+
+#+end_src
+
+***** Racket
+#+begin_src racket
+
+        (lambda (x) (lambda (y) (+ x y)))
+
+        ((lambda (x) (lambda (y) (+ x y))) 1)
+        ((lambda (x) (lambda (y) (+ x y))) 2)
+        ((lambda (x) (lambda (y) (+ x y))) 3)
+
+#+end_src
+
+***** Kotlin
+#+begin_src kotlin
+
+        // Kotlin can't do type inference in this context, so we need to give x a type.
+        { x: Int -> { y: Int -> x + y}}
+
+        { x: Int -> { y: Int -> x + y}} (1)
+        { x: Int -> { y: Int -> x + y}} (2)
+        { x: Int -> { y: Int -> x + y}} (3)
+
+#+end_src
+
+***** Rust
+#+begin_src rust
+
+        //Rust can infer the types of the values passed into functions, but must have types of unassigned parameters explicitly defined in the declaration of the function.
+        let make_adder = |x| { move |y: i32| { x + y } };
+
+        let add1 = make_adder(1);
+        let add2 = make_adder(2);
+        let add3 = make_adder(3);
+
+#+end_src
+
+*** The Mathematical Definition of a Function
+A function from a set X to a set Y is an assignment of an element of Y to each element of X. The set X is called the domain of the function and the set Y is called the codomain of the function.
+
+A function, its domain, and its codomain, are declared by the notation f: X->Y, and the value of a function f at an element x of X, denoted by f(x), is called the image of x under f, or the value of f applied to the argument x.
