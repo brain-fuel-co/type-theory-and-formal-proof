@@ -24,6 +24,7 @@ This one makes LaTeX symbols show up using the UTF-8 character instead of the sy
 *** Paredit Mode: M-x paredit-mode
 This one toggles paredit mode, which is a minor mode for Emacs for navigating parenthetical expressions. [[http://danmidwood.com/content/2014/11/21/animated-paredit.html][Paredit Mode]] is a blog article that should help you get started.
 
+
 * 1. Untyped Lambda Calculus
 ** What is a function? (Type Theory and Formal Proof, 1.1)
 *** The way I like to think about it
@@ -616,6 +617,7 @@ Standard convention is to prefix the names of arguments which will not be used w
 
 #+end_src
 
+
 ***** Rust
 #+begin_src rust
 
@@ -677,83 +679,6 @@ Standard convention is to prefix the names of arguments which will not be used w
 #+begin_src elixir
 
         (fn (x) -> (fn (y) -> x + y end) end)
-
-        (fn (x) -> (fn (y) -> x + y end) end).(1)
-        (fn (x) -> (fn (y) -> x + y end) end).(2)
-        (fn (x) -> (fn (y) -> x + y end) end).(3)
-
-#+end_src
-
-***** Python
-#+begin_src python
-
-        lambda x : (lambda y : x + y)
-
-        (lambda x : (lambda y : x + y))(1)
-        (lambda x : (lambda y : x + y))(2)
-        (lambda x : (lambda y : x + y))(3)
-
-#+end_src
-
-***** Java
-#+begin_src java
-
-    // This is not untyped, as Java requires a return type for functions
-
-    Function<Integer, Function<Integer, Integer>> makeAdder = (x) -> ((y) -> (x + y));
-
-    var add1 = makeAdder.apply(1);
-    var add2 = makeAdder.apply(2);
-    var add3 = makeAdder.apply(3);
-
-#+end_src
-
-***** C++ (Version 14 and above)
-#+begin_src C++
-
-    [](auto x) { return [x](auto y) { return x + y; }; };
-
-    auto add1 = ([](auto x) { return [x](auto y) { return x + y; }; }(1));
-    auto add2 = ([](auto x) { return [x](auto y) { return x + y; }; }(2));
-    auto add3 = ([](auto x) { return [x](auto y) { return x + y; }; }(3));
-
-#+end_src
-
-***** C# (This is not untyped, as C# requires a return type for functions)
-#+begin_src csharp
-
-    // This is not untyped, as C# requires a return type for functions
-    Func<int, Func<int, int>> makeAdder = (x) => ((y) => x + y);
-
-    var add1 = makeAdder(1);
-    var add2 = makeAdder(2);
-    var add3 = makeAdder(3);
-
-#+end_src
-
-***** Racket
-#+begin_src racket
-
-        (lambda (x) (lambda (y) (+ x y)))
-
-        ((lambda (x) (lambda (y) (+ x y))) 1)
-        ((lambda (x) (lambda (y) (+ x y))) 2)
-        ((lambda (x) (lambda (y) (+ x y))) 3)
-
-#+end_src
-
-***** Kotlin
-#+begin_src kotlin
-
-        // Kotlin can't do type inference in this context, so we need to give x a type.
-        { x: Int -> { y: Int -> x + y}}
-
-        { x: Int -> { y: Int -> x + y}} (1)
-        { x: Int -> { y: Int -> x + y}} (2)
-        { x: Int -> { y: Int -> x + y}} (3)
-
-#+end_src
-=======
 
         (fn (x) -> (fn (y) -> x + y end) end).(1)
         (fn (x) -> (fn (y) -> x + y end) end).(2)
